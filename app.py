@@ -20,5 +20,18 @@ def daily_message():
         theme = "weekday"
     return render_template("day.html", day=day_name, message=message, theme=theme)
 
+@app.route('/sidehustle')
+def side_hustle():
+    Side_hustle_ideas=["Free lancing",
+                       "Blogging",
+                       "Tutoring",
+                       "Reading Novels",
+                       "Online Surveys",
+                       "Learning trading",
+                       "Selling handmade crafts",
+                       "Dropshipping",]
+    idea= random.choice(Side_hustle_ideas)
+    return render_template("sidehustle.html",idea=idea)
+
 if __name__ == '__main__':
     app.run(debug=True)
