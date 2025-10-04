@@ -7,12 +7,7 @@
 </head>
 <body>
     <h1>Today is {{day}}</h1>
-    {% if theme == 'weekend' %}
-        <div style="color: green; font-weight: bold;">
-            <h2> Weekend Alert  </h2>
-            <p> {{message}}</p>
-            </div>
-    {% else %}
+    {% if theme == 'weekday' %}
         <div style="color: blue; font-weight: bold;">
             <h2> Weekday Motivation  </h2>
             <p> {{message}}</p>
