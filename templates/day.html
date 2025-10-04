@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Event</title>
+</head>
+<body>
+    <h1>Today is {{day}}</h1>
+    {% if theme == 'weekend' %}
+        <div style="color: green; font-weight: bold;">
+            <h2> Weekend Alert  </h2>
+            <p> {{message}}</p>
+            </div>
+    {% else %}
+        <div style="color: blue; font-weight: bold;">
+            <h2> Weekday Motivation  </h2>
+            <p> {{message}}</p>
+            </div>
+    {% endif %}
+</body>
+</html>
