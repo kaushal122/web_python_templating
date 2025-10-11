@@ -81,8 +81,14 @@ def daily_message(name, email, age):
         theme = "weekday"
         # Note: The original logic dictated returning the day.html here
         return render_template("day.html", day=day_name, message=message, theme=theme, user_name=name)
+    
+# Here all the added users can be seen    
+@app.route('/users',methods=['GET','POST'])
+def users():
+        all_users = User.query.all()
+        return render_template("users.html", users=all_users)
 
-
+# this is the main route which handles both GET and POST requests
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
