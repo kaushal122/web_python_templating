@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Age-Based Content Access</title>
+    <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom font and focus styles */
         body {
             font-family: 'Inter', sans-serif;
         }
         input:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Tailwind ring-blue-500 equivalent */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
-    <!-- Main Form Container -->
     <div class="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full max-w-sm md:max-w-md border border-gray-100">
         <h1 class="text-3xl font-extrabold mb-2 text-gray-900 text-center">
-            Determine Your Path
+            Create Your Account
         </h1>
         <p class="text-center text-gray-500 mb-6">
-            Enter your details to access personalized content.
+            Sign up to access personalized content.
         </p>
         
-        <!-- Error Message Display -->
         {% if error_message %}
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
                 <strong class="font-bold">Error!</strong>
@@ -33,29 +30,21 @@
             </div>
         {% endif %}
 
-        <!-- Form Setup: Sends POST request to the root URL (/) -->
-        <form method="POST" action="/" class="space-y-5"> 
-            
-            <!-- Name Field -->
+        <form method="POST" action="/signup" class="space-y-5">
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                 <input type="text" id="name" name="user_name" required 
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg transition duration-150 ease-in-out focus:border-blue-500" 
                        placeholder="John Doe">
             </div>
-
-            <!-- Email Field -->
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                 <input type="email" id="email" name="user_email" required
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg transition duration-150 ease-in-out focus:border-blue-500"
                        placeholder="you@example.com">
             </div>
-
-            <!-- Age Field -->
             <div>
                 <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-                <!-- NOTE: The 'name' attribute 'user_age' is crucial for app.py -->
                 <input type="number" id="age" name="user_age" required
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg transition duration-150 ease-in-out focus:border-blue-500"
                        placeholder="Enter your age" min="1">
@@ -66,11 +55,9 @@
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg transition duration-150 ease-in-out focus:border-blue-500"
                        placeholder="Enter your password, prefer 8+ characters" min="8">
             </div>
-            
-            <!-- Submit Button -->
             <button type="submit" 
                     class="w-full py-3 px-4 rounded-lg shadow-md text-white bg-blue-600 hover:bg-blue-700 font-semibold transition duration-200 focus:ring-4 focus:ring-blue-300">
-                Submit & See My Content
+                Sign Up
             </button>
         </form>
     </div>

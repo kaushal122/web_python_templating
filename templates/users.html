@@ -9,7 +9,10 @@
     <h2>Users Registered</h2>
     <ul>
         {% for user in users %}
-            <li>{{user.name}} ({{user.age}} years old) and his mail is {{user.mail}} </li>
+            <li>{{user.name}} ({{user.age}} years old) and his mail is {{user.email}} 
+                <ul>His password Is <li>Password: {{user.password}}</li></ul>
+            </li>
+            
         {% endfor %}
     </ul>
     
