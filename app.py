@@ -2,7 +2,9 @@ from flask import Flask, request, render_template, redirect, url_for
 #import requests # Included as requested, though currently unused
 import datetime
 import random
-#from bs4 import BeautifulSoup # Included as requested, though currently unused
+import requests
+from urllib.parse import urlparse
+from bs4 import BeautifulSoup # Included as requested, though currently unused
 from dotenv import load_dotenv
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -147,6 +149,38 @@ def index():
         
     # GET request: Render the initial form
     return render_template("index.html")
+
+# --- Web Scraping Functionality (Currently Unused) ---
+@app.route('/scrape', methods=['GET', 'POST'])
+def scrape_webpage():
+    """Scrapes the given URL and returns the title and main text content."""
+
+    url = request.form.get('url')
+    if not url:
+        return {"error": "No URL provided"}, 400
+
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()  # Raise an error for bad responses
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Extract the title
+        title = soup.title.string if soup.title else 'No Title Found'
+
+        main_text = ''
+        for paragraph in soup.find_all('p'):
+            main_text += paragraph.get_text()
+
+        return {
+            "title": title,
+            "content": main_text
+        }
+
+    except requests.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+        return {"error": str(e)}
+    
 
 if __name__ == '__main__':
     with app.app_context():

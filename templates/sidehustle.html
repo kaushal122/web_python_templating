@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
 <body>
     <div style="text-align: center; margin-top: 50px; color: purple;">
@@ -13,6 +14,11 @@
      <h1>Side Hustle Idea</h1>
     <h2>{{ idea }}</h2>
     <p>Explore this idea and see if it resonates with you!</p>
+    <h3 style="color:green;">Do you want Scrapped data from a Web?</h3>
+    <form method="POST" action="/scrape">
+        <input style="width: 300px; padding: 10px; margin: 5px;" type="text" name="url" placeholder="Enter URL to scrape">
+        <button style="padding: 10px 15px; background-color: purple; color: white; border: none; border-radius: 5px;">Scrape</button>
+    </form>
     </div>
 
 

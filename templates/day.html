@@ -13,5 +13,10 @@
             <p> {{message}}</p>
             </div>
     {% endif %}
+    <h3>Do you want Scrapped data from a Web?</h3>
+    <form method="POST" action="/scrape">
+        <input type="text" name="url" placeholder="Enter URL to scrape">
+        <button type="submit">Scrape</button>
+    </form>
 </body>
 </html>

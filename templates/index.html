@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom font and focus styles */
+
+        /* Custom font and focus styles 
         body {
             font-family: 'Inter', sans-serif;
         }
         input:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Tailwind ring-blue-500 equivalent */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Tailwind ring-blue-500 equivalent 
         }
+        */
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
     <!-- Main Form Container -->
